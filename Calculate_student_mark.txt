@@ -1,0 +1,45 @@
+import java.util.*;
+public class calculate_student_mark{
+    public static void main(String[] arg)
+    {
+       Scanner s=new Scanner(System.in) ;
+       System.out.println("enter the no.of subject:");
+       int numsubject=s.nextInt();
+       if(numsubject<=0)
+       {
+        System.out.println("please enter a valid number of the subject:");
+        return;
+       }
+       int totalmarks=0;
+       int max_mark_per_subject=100;
+       for(int i=1;i<=numsubject;i++)
+       {
+        System.out.println("enter marks obtained in subject"+i+"(out of 100):");
+        int marks=s.nextInt();
+        if(marks<0||marks>max_mark_per_subject)
+        {
+           System.out.println("marks should be in the range of 0 to 100.please enter valid marks:") ;
+           i++;
+        }
+        else{
+            totalmarks+=marks;
+        }
+       }
+       double average_percentage=(double)totalmarks/(numsubject*max_mark_per_subject)*100;
+       System.out.println("total marks:"+totalmarks);
+       System.out.println("average percentage :"+average_percentage);
+       if(average_percentage >90)
+         System.out.println("grade:S");
+        else if(average_percentage >80)
+         System.out.println("grade:A");
+        else  if(average_percentage >70)
+         System.out.println("grade:B");
+        else  if(average_percentage >60)
+         System.out.println("grade:C");
+        else if(average_percentage >=50)
+         System.out.println("grade:D");
+        else 
+        System.out.println("grade:E");   
+
+    }
+}
